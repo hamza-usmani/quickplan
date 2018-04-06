@@ -85,10 +85,7 @@ export class WhenwhereComponent implements OnInit {
   }
 
   handleEvent(date: Date): void {
-    console.log('handling event');
-    this.events.forEach(c =>  console.log(c.start.toString() + "vs clicked: " + date.toString() ));
     const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toString() === date.toString());
-    console.log(eventsonday);
     this.modalData = { date: date, eventsOnDay: eventsonday };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
