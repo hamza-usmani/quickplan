@@ -1,0 +1,12 @@
+<app-section-card-header title="{{title}}" id=3></app-section-card-header>
+
+<div id="texteditor" [froalaEditor]='options' [(froalaModel)]="planText"></div>
+
+<div>
+    <mat-form-field>
+      <input matInput placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search [formControl]="searchControl">
+    </mat-form-field>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+</div>

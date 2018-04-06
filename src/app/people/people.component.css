@@ -1,0 +1,37 @@
+.people-form{
+    padding-top: 2em;
+}
+
+mat-form-field{
+    margin-left: 10%;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-plus-circle {
+    color: #8cbde9;
+    font-size: 30px;
+  position: absolute;
+  bottom: 25%;
+  transition:.5s;
+  }
+  
+  .fa-plus-circle:hover {
+    cursor: pointer;
+      color: #5896cc;
+  }
+
+.fa-minus-circle {
+  color: #f45642;
+  font-size: 30px;
+  position: absolute;
+  bottom: 25%;
+  transition:.5s;
+}
+
+.fa-minus-circle:hover {
+    cursor: pointer;
+    color: #f09084; 
+}

@@ -1,0 +1,71 @@
+.container-fluid{
+    color: whitesmoke;
+    padding-top: 1em;
+    background-color: #6e6f72;
+}
+
+h1{
+    text-align: center;
+}
+
+#sendbtn{
+    position: absolute;
+    right:1em;
+}
+
+.col-sm{
+    text-align: center;
+}
+.row-height{
+    height: 100vh;
+}
+
+.left{
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #cdd2dd;
+    padding: 2em;
+    transition: 0.2s;
+}
+
+.left:hover {
+    background-color: #bdc3cf;
+}
+  
+  .right{
+    height: 100%;
+    overflow-y: scroll;
+    padding: 2em;
+    background-color: #cdd2dd;
+    transition: 0.2s;
+  }
+  
+  .right:hover {
+    background-color: #bdc3cf;
+}
+
+  .mid{
+    height: 100%;
+    padding: 2em;
+    overflow-y: scroll;
+    /*background-color: #c5cad6;*/
+    background-color: #e7eaf1;
+    transition: 0.2s;
+    
+  }
+  
+  .mid:hover {
+    /*background-color: #b8bdc7;*/
+    background-color: #dfe2e9;
+    }
+
+  /*Remove the scrollbar*/
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+  
+  * {
+    -ms-overflow-style: none !important;
+  }
+  

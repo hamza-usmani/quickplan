@@ -1,0 +1,22 @@
+
+#texteditor{
+    text-align: left;
+}
+
+agm-map {
+    height: 300px;
+    width: 100%;
+    padding-top: 0;
+    margin-top: 0;
+    border: 0 !important;
+  }
+
+mat-form-field{
+    margin-left: 0%;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    color: #6e6f72;
+}

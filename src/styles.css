@@ -1,0 +1,43 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+@import '../node_modules/angular-calendar/css/angular-calendar.css';
+
+html,
+body {
+  height: 100%
+}
+
+body{
+    background-color: #bbc2ce;
+}
+
+/*All buttons in application with generic style*/
+
+button{
+    width: 7em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border-radius: 1px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration:none;
+    border: none;
+    outline: none;
+    background-color: #b7ddff;
+    color: #474747;
+}
+
+button:hover{
+  background-color: #88b8e2;
+  color: white;
+}
+
+/* Global modal styles */
+.modal-content{
+    background-color: #f3f6faea;
+    color: #6e6f72;
+    border: none;
+    border-radius: 0;
+}

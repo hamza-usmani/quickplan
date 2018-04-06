@@ -1,0 +1,23 @@
+.btn-group{
+    width: 100%;
+}
+
+.cal-btns{
+    width: 100%;
+    padding: none !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: #e1e2e4;
+    color: #6e6f72;
+}
+
+.cal-btns:hover{
+      background-color: #b8b8b8;
+      color: white;
+}
+
+.monthtext{
+    padding-top: 0.5em;
+    background-color: #cccccc;
+}

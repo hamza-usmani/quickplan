@@ -1,0 +1,16 @@
+<app-section-card-header title="{{title}}" id=1></app-section-card-header>
+<form [formGroup]="peopleForm" class="people-form">
+    <div *ngFor="let person of people; let i = index" class="row form-row">
+        <div class="col-9">
+            <mat-form-field>
+                <input matInput [(ngModel)]="person.name" [ngModelOptions]="{standalone: true}" (keyup.enter)="newPerson()" placeholder="Name" value="">
+            </mat-form-field>
+        </div>
+        <div *ngIf="i == 0" class="col-3">
+            <span (click)="newPerson()"><i class="fas fa-plus-circle fa-3x"></i></span>
+        </div>
+        <div *ngIf="i > 0" class="col-3">
+            <span (click)="deletePerson(i)"><i class="fas fa-minus-circle fa-3x"></i></span>
+        </div>
+    </div>
+</form>

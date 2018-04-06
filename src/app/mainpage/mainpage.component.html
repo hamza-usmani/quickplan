@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col">
+        </div>
+        <div class="col">
+            <h1> {{username | uppercase}}'S PLAN </h1>
+        </div>
+        <div class="col">
+            <button type="button" id="sendbtn" class="btn btn-default"><strong>Send</strong></button>
+        </div>
+      </div>
+    
+        <div class="row row-height">
+          <div class="col-sm left">
+            <app-people></app-people>
+          </div>
+          <div class="col-sm mid">
+            <app-theplan></app-theplan>
+          </div>
+          <div class="col-sm right">
+            <app-whenwhere></app-whenwhere>
+          </div>
+        </div>
+</div>
+  

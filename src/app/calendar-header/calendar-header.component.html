@@ -1,0 +1,31 @@
+        <div class="btn-group fr-desktop fr-top fr-basic">
+          <div
+            class="btn cal-btns"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Previous Month
+          </div>
+          <div
+            class="btn btn-outline-secondary"
+            mwlCalendarToday
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Today
+          </div>
+          <div
+            class="btn cal-btns"
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Next Month
+          </div>
+        </div>
+
+  <div class="monthtext text-center">
+      <div class="h-100 d-flex justify-content-center align-self-center">
+          <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+        </div>
+   </div>
