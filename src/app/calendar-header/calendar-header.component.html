@@ -5,14 +5,16 @@
             [view]="view"
             [(viewDate)]="viewDate"
             (viewDateChange)="viewDateChange.next(viewDate)">
-            Previous Month
+            <span class="text">Previous Month</span>
+            <span class="icon"><i class="fas fa-chevron-left"></i></span>
           </div>
           <div
             class="btn btn-outline-secondary"
             mwlCalendarToday
             [(viewDate)]="viewDate"
             (viewDateChange)="viewDateChange.next(viewDate)">
-            Today
+            <span class="text">Today</span>
+            <span class="icon">Today</span>
           </div>
           <div
             class="btn cal-btns"
@@ -20,7 +22,9 @@
             [view]="view"
             [(viewDate)]="viewDate"
             (viewDateChange)="viewDateChange.next(viewDate)">
-            Next Month
+            <span class="text">Next Month</span>
+            <span class="icon"><i class="fas fa-chevron-right"></i></span>
+
           </div>
         </div>
 

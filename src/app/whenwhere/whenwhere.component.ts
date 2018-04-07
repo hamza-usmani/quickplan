@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Time } from '@angular/common';
 import {
   CalendarEvent, CalendarViewPeriod, CalendarMonthViewBeforeRenderEvent,
   CalendarEventAction, CalendarEventTimesChangedEvent, CalendarDateFormatter, DateFormatterParams
@@ -45,16 +45,15 @@ export class WhenwhereComponent implements OnInit {
       secondary: '#FDF1BA'
     }
   };
-
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
   modalData: {
     date: Date;
     eventsOnDay: CalendarEvent[]
   };
-
   view = 'month';
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
+  newEvent: CalendarEvent;
   period: CalendarViewPeriod;
   activeDayIsOpen = false;
   refresh: Subject<any> = new Subject();
@@ -63,29 +62,39 @@ export class WhenwhereComponent implements OnInit {
     this.title = 'when';
    }
 
-
   ngOnInit() {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    console.log('day clicked: ' + date);
     this.handleEvent(date);
   }
 
-  addEvent(date: Date): void {
+  addEvent() {
     const oldevents = this.events;
     this.events = Object.assign([], oldevents);
     this.events.push({
-      title: 'New event',
-      start: date,
-      end: addDays(date, 1),
+      title: '',
+      start: new Date(),
+      end: addDays(new Date(), 1),
       color: this.colors.red
     });
     this.refresh.next();
   }
 
+  deleteEvent(event) {
+    const oldevents = this.events;
+    this.events = Object.assign([], oldevents.filter(e => e !== event));
+    this.refresh.next();
+  }
+
   handleEvent(date: Date): void {
-    const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toString() === date.toString());
+    this.newEvent = {
+      title: '',
+      start: new Date(),
+      end: new Date(),
+      color: this.colors.red
+    };
+    const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toLocaleDateString() === date.toLocaleDateString());
     this.modalData = { date: date, eventsOnDay: eventsonday };
     this.modal.open(this.modalContent, { size: 'lg' });
   }

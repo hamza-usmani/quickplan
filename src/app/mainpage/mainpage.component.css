@@ -20,11 +20,22 @@ h1{
     height: 100vh;
 }
 
+@media (min-width: 1235px) {
+    .responsive-col{
+        padding: 2em;
+    }
+}
+
+@media (max-width: 1235px) {
+    .responsive-col{
+        padding-top: 2em;
+    }
+}
+
 .left{
     height: 100%;
     overflow-y: scroll;
     background-color: #cdd2dd;
-    padding: 2em;
     transition: 0.2s;
 }
 
@@ -35,7 +46,6 @@ h1{
   .right{
     height: 100%;
     overflow-y: scroll;
-    padding: 2em;
     background-color: #cdd2dd;
     transition: 0.2s;
   }
@@ -46,16 +56,13 @@ h1{
 
   .mid{
     height: 100%;
-    padding: 2em;
     overflow-y: scroll;
-    /*background-color: #c5cad6;*/
     background-color: #e7eaf1;
     transition: 0.2s;
     
   }
   
   .mid:hover {
-    /*background-color: #b8bdc7;*/
     background-color: #dfe2e9;
     }
 

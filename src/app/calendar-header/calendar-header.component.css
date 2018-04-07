@@ -21,3 +21,13 @@
     padding-top: 0.5em;
     background-color: #cccccc;
 }
+
+@media (min-width: 1024px) {
+    span.icon {display:none}
+    span.text {display:inline-block}
+}
+
+@media (max-width: 1024px) {
+    span.icon {display:inline-block}
+    span.text {display:none}
+}

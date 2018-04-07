@@ -5,38 +5,78 @@
         <div class="modal-header">
           <h5 class="modal-title">{{ modalData?.date | date}}</h5>
           <button type="button" class="close" (click)="close()">
-              Close
+                <i class="fas fa-times-circle close-icon"></i>
           </button>
         </div>
         <div class="modal-body">
-            <div class="events-on-day">
-                <h3>Existing events starting on this day:</h3>
+            <div class="container">
+                <h4>Existing events starting on this day:</h4>
+                <div *ngIf="modalData?.eventsOnDay.length === 0">
+                    <p>No events start on this day.</p>
+                </div>
                 <div *ngFor="let event of modalData?.eventsOnDay" class="row form-row">
                     <mat-card>
-                        <mat-card-header>
-                                {{event | json}}
-                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row event-content">
+                                    <div class="col-9 event-card">
+                                            <h6>{{event.title}}</h6>
+                                            <p>Start Date: {{event.start | date}}</p>
+                                            <p>End Date: {{event.end | date}}</p>
+                                    </div>
+                                    <div class="col-3 event-delete">
+                                        <button class="btn btn-danger btn-delete" (click)="deleteEvent(event)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                        </mat-card-content>
                     </mat-card>
                 </div>
             </div>
-            <div class="add-new-event">
-                <h3>Add Event:</h3>
-                <p>Start Date:</p><pre>{{ modalData?.date }}</pre>
-                <p>End Date:</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h5>Event Name:</h5>
+                        <mat-form-field> 
+                        <input matInput type="text" [(ngModel)]="newEvent.title" [ngModelOptions]="{standalone: true}" (keyup)="refresh.next()">
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <h5>Start Time</h5>
+                        <app-datetime-picker
+                            [(ngModel)]="newEvent.start"
+                            (ngModelChange)="refresh.next()"
+                            placeholder="Not set"
+                            editDate=0>
+                            </app-datetime-picker>
+                    </div>
+                    <div class="col">
+                        <h5>End Time</h5>
+                        <app-datetime-picker
+                            [(ngModel)]="newEvent.end"
+                            (ngModelChange)="refresh.next()"
+                            placeholder="Not set"
+                            editDate=1>
+                            </app-datetime-picker>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn" (click)="addEvent(modalData.date)">Add Event</button>
+          <button type="button" class="btn addbtn" (click)="addEvent()">Add Event</button>
         </div>
 </ng-template>
 
 <div class="align-self-center">
   <div class="cal">
+    <div [ngSwitch]="view">
     <mwl-calendar-month-view
       [viewDate]="viewDate"
       [events]="events"
       [activeDayIsOpen]="activeDayIsOpen"
       (dayClicked)="dayClicked($event.day)">
     </mwl-calendar-month-view>
+    </div>
   </div>
 </div>
+

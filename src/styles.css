@@ -12,28 +12,6 @@ body{
     background-color: #bbc2ce;
 }
 
-/*All buttons in application with generic style*/
-
-button{
-    width: 7em;
-    padding-left: 3em;
-    padding-right: 3em;
-    border-radius: 1px;
-    font-size: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration:none;
-    border: none;
-    outline: none;
-    background-color: #b7ddff;
-    color: #474747;
-}
-
-button:hover{
-  background-color: #88b8e2;
-  color: white;
-}
-
 /* Global modal styles */
 .modal-content{
     background-color: #f3f6faea;

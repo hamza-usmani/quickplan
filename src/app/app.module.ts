@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule, MatCardModule, MatSlideToggleModule, MatMenuModule} from '@angular/material';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbDatepickerModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AgmCoreModule } from '@agm/core';
 import { CalendarModule } from 'angular-calendar';
@@ -21,6 +21,7 @@ import { TheplanComponent } from './theplan/theplan.component';
 import { SectionCardHeaderComponent } from './section-card-header/section-card-header.component';
 import { WhenwhereComponent } from './whenwhere/whenwhere.component';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
+import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CalendarHeaderComponent } from './calendar-header/calendar-header.compo
     TheplanComponent,
     SectionCardHeaderComponent,
     WhenwhereComponent,
-    CalendarHeaderComponent
+    CalendarHeaderComponent,
+    DatetimePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +47,11 @@ import { CalendarHeaderComponent } from './calendar-header/calendar-header.compo
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     NgbModule.forRoot(),
+    NgbDatepickerModule.forRoot(),
+    NgbTimepickerModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyCQ-ZIQMAG6JXyNk3t0J-NCdG64pSeZDvQ",
-      libraries: ["places"]
+      apiKey: 'AIzaSyCQ-ZIQMAG6JXyNk3t0J-NCdG64pSeZDvQ',
+      libraries: ['places']
     }),
     CalendarModule.forRoot(),
     AppRoutingModule
