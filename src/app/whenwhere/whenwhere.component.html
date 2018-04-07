@@ -20,11 +20,11 @@
                             <div class="row event-content">
                                     <div class="col-9 event-card">
                                             <h6>{{event.title}}</h6>
-                                            <p>Start Date: {{event.start | date}}</p>
-                                            <p>End Date: {{event.end | date}}</p>
+                                            <p>Start Date: {{event.start | date:'medium'}}</p>
+                                            <p>End Date: {{event.end | date:'medium'}}</p>
                                     </div>
                                     <div class="col-3 event-delete">
-                                        <button class="btn btn-danger btn-delete" (click)="deleteEvent(event)">
+                                        <button class="btn btn-danger btn-delete" (click)="deleteEvent(event); close();">
                                             <i class="fas fa-times"></i>
                                         </button>
                                     </div>
@@ -32,8 +32,8 @@
                         </mat-card-content>
                     </mat-card>
                 </div>
-            </div>
-            <div class="container">
+            <div class="new-event-title"><h4>Add event starting on this day:</h4></div>
+            <div class="new-event-container">
                 <div class="row">
                     <div class="col">
                         <h5>Event Name:</h5>
@@ -51,7 +51,7 @@
                             </app-datetime-picker>
                     </div>
                     <div class="col">
-                        <h5>End Time</h5>
+                        <h5>End Date & Time</h5>
                         <app-datetime-picker
                             [(ngModel)]="newEvent.end"
                             (ngModelChange)="refresh.next()"
@@ -63,8 +63,9 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn addbtn" (click)="addEvent()">Add Event</button>
+          <button type="button" class="btn addbtn" (click)="addEvent(); close();">Add Event</button>
         </div>
+    </div>
 </ng-template>
 
 <div class="align-self-center">

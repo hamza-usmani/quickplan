@@ -52,8 +52,14 @@ mat-card{
     width: 60%;
 }
 
-.add-event{
+.new-event-title{
     margin-top: 1em;
+}
+
+.new-event-container{
+    margin-top: 1em;
+    border: 1px solid gainsboro;
+    padding: 1em;
 }
 
 .addbtn{

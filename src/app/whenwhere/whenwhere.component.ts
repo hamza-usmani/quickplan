@@ -73,10 +73,10 @@ export class WhenwhereComponent implements OnInit {
     const oldevents = this.events;
     this.events = Object.assign([], oldevents);
     this.events.push({
-      title: '',
-      start: new Date(),
-      end: addDays(new Date(), 1),
-      color: this.colors.red
+      title: this.newEvent.title,
+      start: this.newEvent.start,
+      end: this.newEvent.end,
+      color: this.newEvent.color
     });
     this.refresh.next();
   }
@@ -90,8 +90,8 @@ export class WhenwhereComponent implements OnInit {
   handleEvent(date: Date): void {
     this.newEvent = {
       title: '',
-      start: new Date(),
-      end: new Date(),
+      start: date,
+      end: date,
       color: this.colors.red
     };
     const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toLocaleDateString() === date.toLocaleDateString());

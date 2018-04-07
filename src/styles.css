@@ -19,3 +19,22 @@ body{
     border: none;
     border-radius: 0;
 }
+
+.btn-link{
+    color: #bbc2ce;
+}
+
+.btn-outline-primary{
+    color: #6e6f72;
+    border-width: 2px;
+    border-color: #a1b1ce;
+}
+
+.btn-outline-primary:hover{
+    background-color: #8897b9;
+    border-color: white;
+}
+
+.btn-outline-primary:focus{
+    outline: none;
+}
