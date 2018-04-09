@@ -8,13 +8,37 @@ import {
   startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours
 } from 'date-fns';
 import { Subject } from 'rxjs/Subject';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import { EventColor } from 'calendar-utils';
 
 export class CustomDateFormatter extends CalendarDateFormatter {
   public monthViewColumnHeader({ date, locale }: DateFormatterParams): string {
     return new DatePipe(locale).transform(date, 'EEE', locale);
   }
 }
+
+export const colors: EventColor[] = [
+  { // red
+    primary: '#ad2121',
+    secondary: '#FAE3E3'
+  },
+  { // blue
+    primary: '#1e90ff',
+    secondary: '#D1E8FF'
+  },
+  { // yellow
+    primary: '#e3bc08',
+    secondary: '#FDF1BA'
+  },
+  { // green
+    primary: '#42ba37',
+    secondary: '#cbfcc7'
+  },
+  { // purple
+    primary: '#792399',
+    secondary: '#d9a6ed'
+  }
+];
 
 @Component({
   selector: 'app-whenwhere',
@@ -31,20 +55,8 @@ export class CustomDateFormatter extends CalendarDateFormatter {
 
 export class WhenwhereComponent implements OnInit {
   title: string;
-  colors: any = {
-    red: {
-      primary: '#ad2121',
-      secondary: '#FAE3E3'
-    },
-    blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF'
-    },
-    yellow: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA'
-    }
-  };
+  colorIndex = 0;
+  modalRef: NgbModalRef;
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
   modalData: {
     date: Date;
@@ -57,6 +69,7 @@ export class WhenwhereComponent implements OnInit {
   period: CalendarViewPeriod;
   activeDayIsOpen = false;
   refresh: Subject<any> = new Subject();
+  errorState = false;
 
   constructor(private cdr: ChangeDetectorRef, private modal: NgbModal) {
     this.title = 'when';
@@ -66,19 +79,26 @@ export class WhenwhereComponent implements OnInit {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    this.errorState = false;
     this.handleEvent(date);
   }
 
   addEvent() {
-    const oldevents = this.events;
-    this.events = Object.assign([], oldevents);
-    this.events.push({
-      title: this.newEvent.title,
-      start: this.newEvent.start,
-      end: this.newEvent.end,
-      color: this.newEvent.color
-    });
-    this.refresh.next();
+    if (this.newEvent.end < this.newEvent.start) {
+      this.errorState = true;
+    } else {
+        this.errorState = false;
+        const oldevents = this.events;
+        this.events = Object.assign([], oldevents);
+        this.events.push({
+          title: this.newEvent.title,
+          start: this.newEvent.start,
+          end: this.newEvent.end,
+          color: this.newEvent.color
+        });
+        this.refresh.next();
+        this.modalRef.close();
+    }
   }
 
   deleteEvent(event) {
@@ -88,15 +108,19 @@ export class WhenwhereComponent implements OnInit {
   }
 
   handleEvent(date: Date): void {
+    if (this.colorIndex === colors.length) {
+      this.colorIndex = 0;
+    }
     this.newEvent = {
       title: '',
       start: date,
       end: date,
-      color: this.colors.red
+      color: colors[this.colorIndex]
     };
+    this.colorIndex++;
     const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toLocaleDateString() === date.toLocaleDateString());
     this.modalData = { date: date, eventsOnDay: eventsonday };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
   }
 
 }

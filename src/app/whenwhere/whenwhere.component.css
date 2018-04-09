@@ -52,6 +52,12 @@ mat-card{
     width: 60%;
 }
 
+@media (max-width: 800px) {
+    .btn-delete{
+        width: 100%;
+    }
+}
+
 .new-event-title{
     margin-top: 1em;
 }
@@ -81,14 +87,7 @@ mat-card{
   color: white;
 }
 
-
-@media (max-width: 800px) {
-    .btn-delete{
-        width: 100%;
-    }
-}
-
-table{
-    table-layout: fixed;
-    word-wrap: break-word;
+.custom-alert{
+    border-radius: 0;
+    padding-bottom: 0;
 }
