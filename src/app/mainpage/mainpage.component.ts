@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
+import { SharedService } from '../Services/shared.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/filter';
 export class MainpageComponent implements OnInit {
   username: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _sharedService: SharedService) { }
 
   ngOnInit() {
     this.route.queryParams
@@ -19,5 +20,4 @@ export class MainpageComponent implements OnInit {
         this.username = params.name;
       });
   }
-
 }

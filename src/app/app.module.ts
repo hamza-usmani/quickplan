@@ -22,6 +22,7 @@ import { SectionCardHeaderComponent } from './section-card-header/section-card-h
 import { WhenwhereComponent } from './whenwhere/whenwhere.component';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
+import { ViewplanComponent } from './viewplan/viewplan.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DatetimePickerComponent } from './datetime-picker/datetime-picker.compo
     SectionCardHeaderComponent,
     WhenwhereComponent,
     CalendarHeaderComponent,
-    DatetimePickerComponent
+    DatetimePickerComponent,
+    ViewplanComponent
   ],
   imports: [
     BrowserModule,
