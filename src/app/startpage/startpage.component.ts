@@ -11,10 +11,10 @@ export class StartpageComponent implements OnInit {
 
   title: string;
   buttonText: string;
-  @Input() username: string;
+  planname: string;
 
   constructor(private router: Router) {
-    this.title = 'Who are you?';
+    this.title = 'What is the name of your plan?';
     this.buttonText = 'Plan';
   }
 
@@ -22,7 +22,7 @@ export class StartpageComponent implements OnInit {
   }
 
   goToHome(): void {
-    this.router.navigate(['/plan'], { queryParams: { name: this.username } });
+    this.router.navigate(['/plan'], { queryParams: { name: this.planname } });
   }
 
 }

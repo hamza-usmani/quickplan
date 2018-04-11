@@ -3,7 +3,7 @@
         <h1 class="display-3">{{title}}</h1>
         <form class="name-form" (ngSubmit)="goToHome()">
             <mat-form-field>
-                <input id="nameInput" matInput placeholder="Name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" autofocus value="">
+                <input id="nameInput" matInput placeholder="Name" [(ngModel)]="planname" [ngModelOptions]="{standalone: true}" autofocus value="">
             </mat-form-field>
             <button type="submit" class="btn btn-default">{{buttonText}}</button>
         </form> 
