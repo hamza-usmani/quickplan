@@ -14,7 +14,7 @@ export class StartpageComponent implements OnInit {
   planname: string;
 
   constructor(private router: Router) {
-    this.title = 'What is the name of your plan?';
+    this.title = 'Name your plan';
     this.buttonText = 'Plan';
   }
 

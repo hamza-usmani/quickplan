@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatInputModule, MatCardModule, MatSlideToggleModule, MatMenuModule} from '@angular/material';
+import {MatInputModule, MatCardModule, MatSlideToggleModule,
+        MatMenuModule, MatToolbarModule, MatProgressSpinnerModule} from '@angular/material';
 import {NgbModule, NgbDatepickerModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AgmCoreModule } from '@agm/core';
@@ -23,6 +24,10 @@ import { WhenwhereComponent } from './whenwhere/whenwhere.component';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
 import { ViewplanComponent } from './viewplan/viewplan.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthenticationService } from './Services/authentication.service';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import { ViewplanComponent } from './viewplan/viewplan.component';
     WhenwhereComponent,
     CalendarHeaderComponent,
     DatetimePickerComponent,
-    ViewplanComponent
+    ViewplanComponent,
+    SignupComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,8 @@ import { ViewplanComponent } from './viewplan/viewplan.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     NgbModule.forRoot(),
@@ -59,7 +69,8 @@ import { ViewplanComponent } from './viewplan/viewplan.component';
     AppRoutingModule
   ],
   providers: [
-    SharedService
+    SharedService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
