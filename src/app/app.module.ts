@@ -23,7 +23,6 @@ import { SectionCardHeaderComponent } from './section-card-header/section-card-h
 import { WhenwhereComponent } from './whenwhere/whenwhere.component';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
-import { ViewplanComponent } from './viewplan/viewplan.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthenticationService } from './Services/authentication.service';
 import { HomeComponent } from './home/home.component';
@@ -41,7 +40,6 @@ import { LoginComponent } from './login/login.component';
     WhenwhereComponent,
     CalendarHeaderComponent,
     DatetimePickerComponent,
-    ViewplanComponent,
     SignupComponent,
     HomeComponent,
     LoginComponent

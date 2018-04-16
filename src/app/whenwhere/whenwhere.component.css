@@ -71,15 +71,20 @@ mat-card{
 .addbtn{
     padding-left: 3em;
     padding-right: 3em;
-    border-radius: 1px;
-    font-size: 14px;
+    border-radius: 5em;
+    font-size: 16px;
     text-align: center;
     text-transform: uppercase;
     text-decoration:none;
     border: none;
     outline: none;
     background-color: #b7ddff;
-    color: #474747;
+    color: white;
+    text-shadow:
+   -1px -1px 0 rgb(167, 167, 167),  
+    1px -1px 0 rgb(167, 167, 167),
+    -1px 1px 0 rgb(167, 167, 167),
+     1px 1px 0 rgb(167, 167, 167);
 }
 
 .addbtn:hover{

@@ -21,7 +21,7 @@ export class StartpageComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToHome(): void {
+  goToHome() {
     this.router.navigate(['/plan'], { queryParams: { name: this.planname } });
   }
 

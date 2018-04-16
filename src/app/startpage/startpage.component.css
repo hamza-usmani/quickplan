@@ -2,6 +2,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-bottom: 10%;
+}
+
+.jumbotron{
+    background-color: #fdfeff;
 }
 
 mat-form-field{
@@ -9,20 +14,27 @@ mat-form-field{
 }
 
 button{
-    padding-left: 3em;
-    padding-right: 3em;
-    border-radius: 1px;
-    font-size: 14px;
+    width: 5em;
+    border-radius: 5em;
+    font-size: 2em;
     text-align: center;
     text-transform: uppercase;
-    text-decoration:none;
-    border: none;
-    outline: none;
     background-color: #b7ddff;
-    color: #474747;
+    color: white;
+    text-shadow:
+   -1px -1px 0 rgb(167, 167, 167),  
+    1px -1px 0 rgb(167, 167, 167),
+    -1px 1px 0 rgb(167, 167, 167),
+     1px 1px 0 rgb(167, 167, 167);
 }
 
 button:hover{
   background-color: #88b8e2;
   color: white;
+}
+
+@media (max-width: 485px) {
+    .display-3{
+        font-size: 3em;
+    }
 }
