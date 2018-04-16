@@ -22,6 +22,11 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  private showError(message: string) {
+    this.errorMessage = message;
+    this.errorState = true;
+  }
+
   signup() {
     if (!this.credentials.email || !this.credentials.password) {
       this.showError('Both email and password must have values');
@@ -35,14 +40,8 @@ export class SignupComponent implements OnInit {
     else {
       this.errorState = false;
       this.showSpinner = true;
-      console.log(this.credentials.email + ' , ' + this.credentials.password);
       this.register();
     }
-  }
-
-  private showError(message: string) {
-    this.errorMessage = message;
-    this.errorState = true;
   }
 
   private register() {

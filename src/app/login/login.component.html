@@ -1,3 +1,24 @@
-<p>
-  login works!
-</p>
+<div class="container justify-content-center align-self-center">
+    <div class="my-auto"> <!--jumbotron-->
+      <h1 class="display-3">Login</h1>
+      <div *ngIf="errorState" class="alert alert-danger custom-alert" role="alert">
+          <p>{{errorMessage}}</p>
+      </div>
+      <form>
+        <div class="row-fluid">
+          <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="credentials.email" name="email" type="email" required [disabled]="showSpinner ? 'true' : 'false'">
+          </mat-form-field>
+        </div>
+  
+        <div class="row-fluid">
+          <mat-form-field>
+            <input matInput placeholder="Password" [(ngModel)]="credentials.password" type="password" name="password" required [disabled]="showSpinner ? 'true' : 'false'">
+          </mat-form-field>
+        </div>
+  
+      </form>
+      <mat-spinner [diameter]="70" style="margin:0 auto;" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      <button (click)="login()" class="btn" [disabled]="showSpinner">Login</button>
+    </div>
+  </div>
