@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../Services/authentication.service';
 import { Router } from '@angular/router';
+import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   showSpinner = false;
   errorMessage: string;
   errorState = false;
+  @Input() modalRef: NgbModalRef = null;
 
   constructor(private _authenticationService: AuthenticationService, private router: Router) { }
 
@@ -43,7 +45,10 @@ export class LoginComponent implements OnInit {
 
   postLogin() {
     this._authenticationService.login(this.credentials).subscribe(s => {
-      this.router.navigateByUrl('/home');
+      if (this.modalRef !== null) {
+        this.modalRef.close();
+      }
+      this.router.navigateByUrl('/profile');
     }, (err) => {
         this.showSpinner = false;
         this.showError(err.error);

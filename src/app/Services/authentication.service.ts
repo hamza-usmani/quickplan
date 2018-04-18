@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { environment } from '../../environments/environment';
+import { Plan } from '../Models/Plan';
 
 export interface UserDetails {
   _id: string;
@@ -53,7 +54,6 @@ export class AuthenticationService {
 
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
-    console.log(user);
     if (user) {
       return user.exp > Date.now() / 1000;
     } else {
@@ -61,16 +61,14 @@ export class AuthenticationService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register', user?: TokenPayload): Observable<any> {
     let base;
-
     if (method === 'post') {
-      base = this.http.post(environment.server + `users/${type}`, user);
+        base = this.http.post(environment.server + `users/${type}`, user);
     }
     else {
-      base = this.http.get(environment.server + `users/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+        base = this.http.get(environment.server + `users/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
-
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -88,10 +86,6 @@ export class AuthenticationService {
 
   public login(user: TokenPayload): Observable<any> {
     return this.request('post', 'login', user);
-  }
-
-  public profile(): Observable<any> {
-    return this.request('get', 'profile');
   }
 
   public logout(): void {

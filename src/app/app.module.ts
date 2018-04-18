@@ -27,6 +27,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthenticationService } from './Services/authentication.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoginComponent } from './login/login.component';
     DatetimePickerComponent,
     SignupComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

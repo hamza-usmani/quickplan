@@ -3,8 +3,11 @@
         <h1 class="display-3">{{title}}</h1>
         <form class="name-form" (ngSubmit)="goToHome()">
             <mat-form-field>
-                <input id="nameInput" matInput placeholder="Name" [(ngModel)]="planname" [ngModelOptions]="{standalone: true}" autofocus value="">
+                <input id="nameInput" matInput placeholder="Name" [(ngModel)]="planname" [ngModelOptions]="{standalone: true}" required autofocus value="">
             </mat-form-field>
+            <div class="container" *ngIf="errorState" class="alert alert-danger custom-alert" role="alert">
+                <p>{{errorMessage}}</p>
+            </div>              
             <button type="submit" class="btn btn-default">{{buttonText}}</button>
         </form> 
     </div>

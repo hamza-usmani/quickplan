@@ -79,12 +79,7 @@ mat-card{
     border: none;
     outline: none;
     background-color: #b7ddff;
-    color: white;
-    text-shadow:
-   -1px -1px 0 rgb(167, 167, 167),  
-    1px -1px 0 rgb(167, 167, 167),
-    -1px 1px 0 rgb(167, 167, 167),
-     1px 1px 0 rgb(167, 167, 167);
+    color: #6e6f72;
 }
 
 .addbtn:hover{

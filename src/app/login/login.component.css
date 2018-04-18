@@ -10,18 +10,19 @@ mat-form-field{
 }
 
 button{
-    margin-top: 1em;
-    padding-left: 3em;
-    padding-right: 3em;
-    border-radius: 1px;
-    font-size: 14px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 5em;
+    font-size: 1.5em;
     text-align: center;
     text-transform: uppercase;
-    text-decoration:none;
-    border: none;
-    outline: none;
     background-color: #b7ddff;
-    color: #474747;
+    color: white;
+    text-shadow:
+   -1px -1px 0 rgb(167, 167, 167),  
+    1px -1px 0 rgb(167, 167, 167),
+    -1px 1px 0 rgb(167, 167, 167),
+     1px 1px 0 rgb(167, 167, 167);
 }
 
 button:hover{

@@ -32,4 +32,8 @@ export class PeopleComponent implements OnInit {
   deletePerson(index: number): void {
       this.people.splice(index, 1);
   }
+
+  savePlan() {
+    this._sharedService.currentPlan.people = this.people;
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SharedService } from '../Services/shared.service';
 
 @Component({
   selector: 'app-startpage',
@@ -9,20 +10,31 @@ import { FormsModule } from '@angular/forms';
 })
 export class StartpageComponent implements OnInit {
 
-  title: string;
-  buttonText: string;
-  planname: string;
+  title = 'Name your plan';
+  buttonText  = 'Plan';
+  planname = '';
+  errorMessage: string;
+  errorState = false;
 
-  constructor(private router: Router) {
-    this.title = 'Name your plan';
-    this.buttonText = 'Plan';
+  constructor(private router: Router, private _sharedService: SharedService) {
   }
 
   ngOnInit() {
   }
 
   goToHome() {
-    this.router.navigate(['/plan'], { queryParams: { name: this.planname } });
+    if (this.planname === null || this.planname.trim().length === 0) {
+      this.showError('You must enter a name for your plan!');
+    }
+    else {
+      this.errorState = false;
+      this._sharedService.currentPlan.planname = this.planname;
+      this.router.navigate(['/plan']);
+    }
   }
 
+  private showError(message: string) {
+    this.errorMessage = message;
+    this.errorState = true;
+  }
 }

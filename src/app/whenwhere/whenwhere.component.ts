@@ -10,6 +10,7 @@ import {
 import { Subject } from 'rxjs/Subject';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import { EventColor } from 'calendar-utils';
+import {SharedService} from '../Services/shared.service';
 
 export class CustomDateFormatter extends CalendarDateFormatter {
   public monthViewColumnHeader({ date, locale }: DateFormatterParams): string {
@@ -71,7 +72,7 @@ export class WhenwhereComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   errorState = false;
 
-  constructor(private cdr: ChangeDetectorRef, private modal: NgbModal) {
+  constructor(private cdr: ChangeDetectorRef, private modal: NgbModal, private _sharedService: SharedService) {
     this.title = 'when';
    }
 
@@ -121,6 +122,10 @@ export class WhenwhereComponent implements OnInit {
     const eventsonday: CalendarEvent[] = this.events.filter(c =>  c.start.toLocaleDateString() === date.toLocaleDateString());
     this.modalData = { date: date, eventsOnDay: eventsonday };
     this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
+  }
+
+  savePlan() {
+    this._sharedService.currentPlan.events = this.events;
   }
 
 }

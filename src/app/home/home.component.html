@@ -6,8 +6,8 @@
     </div>
     <div class="modal-body">
         <div class="container">
-            <div *ngIf="modalData?.type === 'signup'"><app-signup></app-signup></div>
-            <div *ngIf="modalData?.type === 'login'"><app-login></app-login></div>
+            <div *ngIf="modalData?.type === 'signup'"><app-signup [modalRef]="modalRef"></app-signup></div>
+            <div *ngIf="modalData?.type === 'login'"><app-login [modalRef]="modalRef"></app-login></div>
         </div>
     </div>
     <div class="modal-footer">

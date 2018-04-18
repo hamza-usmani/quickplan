@@ -4,9 +4,11 @@
         <div class="col">
         </div>
         <div class="col">
-            <h1>{{title | uppercase}}</h1>
+            <h1>{{planName | uppercase}}</h1>
         </div>
         <div class="col">
+          <button (click)="savePlan()">Save Plan</button>
+          <button (click)="printPlan()">Print Plan</button>
         </div>
       </div>
     

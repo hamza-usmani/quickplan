@@ -15,14 +15,12 @@ import { MapsAPILoader } from '@agm/core';
 export class TheplanComponent implements OnInit {
   title: string;
   planText = '';
-
   options: Object = {
     placeholderText: 'Details of your plan here!',
     toolbarSticky: false,
     toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'paragraphFormat', 'fontSize', 'fontFamily', 'color', 'formatOL'],
     quickInsertTags: []
   };
-
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
@@ -66,6 +64,12 @@ export class TheplanComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  savePlan() {
+    this._sharedService.currentPlan.plantext = this.planText;
+    this._sharedService.currentPlan.latitude = this.latitude;
+    this._sharedService.currentPlan.longitude = this.longitude;
   }
 
 }
