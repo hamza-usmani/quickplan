@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SharedService } from '../Services/shared.service';
+import { PlanService } from '../Services/plan.service';
 
 @Component({
   selector: 'app-startpage',
@@ -16,7 +16,7 @@ export class StartpageComponent implements OnInit {
   errorMessage: string;
   errorState = false;
 
-  constructor(private router: Router, private _sharedService: SharedService) {
+  constructor(private router: Router, private _planService: PlanService) {
   }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class StartpageComponent implements OnInit {
     }
     else {
       this.errorState = false;
-      this._sharedService.currentPlan.planname = this.planname;
+      this._planService.currentPlan.planname = this.planname;
       this.router.navigate(['/plan']);
     }
   }

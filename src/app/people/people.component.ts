@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import {Person} from '../Models/Person';
-import { SharedService } from '../Services/shared.service';
+import { PlanService } from '../Services/plan.service';
 
 @Component({
   selector: 'app-people',
@@ -13,7 +13,7 @@ export class PeopleComponent implements OnInit {
   people: Person[];
   peopleForm: FormGroup;
 
-  constructor(private _sharedService: SharedService) {
+  constructor(private _planService: PlanService) {
     this.title = 'people';
     this.people = new Array(0);
     const firstPerson = new Person(1);
@@ -34,6 +34,6 @@ export class PeopleComponent implements OnInit {
   }
 
   savePlan() {
-    this._sharedService.currentPlan.people = this.people;
+    this._planService.currentPlan.people = this.people;
   }
 }

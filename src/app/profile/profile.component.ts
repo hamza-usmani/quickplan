@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService, TokenPayload } from '../Services/authentication.service';
 import { Router } from '@angular/router';
 import { UserProfile } from '../Models/UserProfile';
+import { ProfileService } from '../Services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,13 +15,13 @@ export class ProfileComponent implements OnInit {
   errorMessage: string;
   errorState = false;
 
-  constructor(private _authenticationService: AuthenticationService,  private router: Router) {
+  constructor(private _authenticationService: AuthenticationService, private _profileService: ProfileService, private router: Router) {
     if (!_authenticationService.isLoggedIn()) {
       this.router.navigateByUrl('/home');
     }
     else {
-      _authenticationService.profile().subscribe(s => {
-        this.profile = <UserProfile>s;
+      _profileService.profile().subscribe(p => {
+        this.profile = <UserProfile>p;
       }, (err) => {
           this.showError(err.error);
       });

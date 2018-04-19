@@ -9,8 +9,6 @@ import {NgbModule, NgbDatepickerModule, NgbTimepickerModule} from '@ng-bootstrap
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AgmCoreModule } from '@agm/core';
 import { CalendarModule } from 'angular-calendar';
-
-import { SharedService } from './Services/shared.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -28,6 +26,9 @@ import { AuthenticationService } from './Services/authentication.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileService } from './Services/profile.service';
+import { PlanService } from './Services/plan.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -62,15 +63,16 @@ import { ProfileComponent } from './profile/profile.component';
     NgbDatepickerModule.forRoot(),
     NgbTimepickerModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCQ-ZIQMAG6JXyNk3t0J-NCdG64pSeZDvQ',
+      apiKey: environment.mapsapikey,
       libraries: ['places']
     }),
     CalendarModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
-    SharedService,
-    AuthenticationService
+    AuthenticationService,
+    ProfileService,
+    PlanService
   ],
   bootstrap: [AppComponent]
 })

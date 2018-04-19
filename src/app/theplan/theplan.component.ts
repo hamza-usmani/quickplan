@@ -1,11 +1,11 @@
 import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl} from '@angular/forms';
-import {SharedService} from '../Services/shared.service';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {  fabric  } from 'fabric';
 import { Subject } from 'rxjs/Subject';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { PlanService } from '../Services/plan.service';
 
 @Component({
   selector: 'app-theplan',
@@ -13,7 +13,7 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./theplan.component.css'],
 })
 export class TheplanComponent implements OnInit {
-  title: string;
+  title = 'The Plan';
   planText = '';
   options: Object = {
     placeholderText: 'Details of your plan here!',
@@ -28,8 +28,7 @@ export class TheplanComponent implements OnInit {
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-  constructor(private _sharedService: SharedService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
-    this.title = 'the plan';
+  constructor(private _planService: PlanService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -67,9 +66,9 @@ export class TheplanComponent implements OnInit {
   }
 
   savePlan() {
-    this._sharedService.currentPlan.plantext = this.planText;
-    this._sharedService.currentPlan.latitude = this.latitude;
-    this._sharedService.currentPlan.longitude = this.longitude;
+    this._planService.currentPlan.plantext = this.planText;
+    this._planService.currentPlan.latitude = this.latitude;
+    this._planService.currentPlan.longitude = this.longitude;
   }
 
 }

@@ -1,16 +1,12 @@
 import { Component, OnInit, OnChanges, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
 import { DatePipe, Time } from '@angular/common';
-import {
-  CalendarEvent, CalendarViewPeriod, CalendarMonthViewBeforeRenderEvent,
-  CalendarEventAction, CalendarEventTimesChangedEvent, CalendarDateFormatter, DateFormatterParams
-} from 'angular-calendar';
-import {
-  startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours
-} from 'date-fns';
+import { CalendarEvent, CalendarViewPeriod, CalendarMonthViewBeforeRenderEvent, CalendarEventAction, CalendarEventTimesChangedEvent,
+         CalendarDateFormatter, DateFormatterParams } from 'angular-calendar';
+import {startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours} from 'date-fns';
 import { Subject } from 'rxjs/Subject';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import { EventColor } from 'calendar-utils';
-import {SharedService} from '../Services/shared.service';
+import { PlanService } from '../Services/plan.service';
 
 export class CustomDateFormatter extends CalendarDateFormatter {
   public monthViewColumnHeader({ date, locale }: DateFormatterParams): string {
@@ -55,7 +51,7 @@ export const colors: EventColor[] = [
 })
 
 export class WhenwhereComponent implements OnInit {
-  title: string;
+  title = 'When';
   colorIndex = 0;
   modalRef: NgbModalRef;
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -72,9 +68,8 @@ export class WhenwhereComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   errorState = false;
 
-  constructor(private cdr: ChangeDetectorRef, private modal: NgbModal, private _sharedService: SharedService) {
-    this.title = 'when';
-   }
+  constructor(private cdr: ChangeDetectorRef, private modal: NgbModal, private _planService: PlanService) {
+  }
 
   ngOnInit() {
   }
@@ -125,7 +120,7 @@ export class WhenwhereComponent implements OnInit {
   }
 
   savePlan() {
-    this._sharedService.currentPlan.events = this.events;
+    this._planService.currentPlan.events = this.events;
   }
 
 }

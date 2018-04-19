@@ -3,10 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { environment } from '../../environments/environment';
-import { Plan } from '../Models/Plan';
 import { UserProfile } from '../Models/UserProfile';
-import { AuthenticationService } from './authentication.service';
-
 
 @Injectable()
 export class ProfileService {
@@ -41,7 +38,7 @@ export class ProfileService {
     return this.request('get');
   }
 
-  public savePlan(profile: UserProfile): Observable<any> {
+  public newProfile(profile: UserProfile): Observable<any> {
     return this.request('post', profile);
   }
 
