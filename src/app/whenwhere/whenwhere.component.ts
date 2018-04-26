@@ -72,6 +72,9 @@ export class WhenwhereComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this._planService.currentPlan.events) {
+      this.events = this._planService.currentPlan.events;
+    }
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {

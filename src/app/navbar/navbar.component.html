@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-xl bg-light navbar-light">
   <a class="navbar-brand" href="home">{{title}}</a>
   
-  <div *ngIf="isLoggedIn">
-      <button class="logout" (click)="logout()">Logout</button>
+  <div class="align-right" *ngIf="isLoggedIn">
+      <button class="btn logout" (click)="logout()">Logout</button>
   </div>
   
 </nav>

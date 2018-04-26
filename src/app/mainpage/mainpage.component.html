@@ -1,27 +1,22 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-    <div class="row align-items-start">
-        <div class="col">
-        </div>
-        <div class="col">
-            <h1>{{planName | uppercase}}</h1>
-        </div>
-        <div class="col">
-          <button (click)="savePlan()">Save Plan</button>
-          <button (click)="printPlan()">Print Plan</button>
-        </div>
-      </div>
+    <div class="row justify-content-center align-self-center">
+            <input class="justify-content-center align-self-center plan-title" type="text" [(ngModel)]="planName">
+            <div class="align-right">
+                <button class="btn save-btn" (click)="savePlanClicked()">Save</button>
+            </div>
+    </div>
     
-        <div class="row row-height">
-          <div class="col-sm left responsive-col">
-            <app-people></app-people>
-          </div>
-          <div class="col-sm mid responsive-col">
-            <app-theplan></app-theplan>
-          </div>
-          <div class="col-sm right responsive-col">
-            <app-whenwhere></app-whenwhere>
-          </div>
-        </div>
+    <div class="row row-height">
+      <div class="col-sm left responsive-col">
+        <app-people></app-people>
+      </div>
+      <div class="col-sm mid responsive-col">
+        <app-theplan></app-theplan>
+      </div>
+      <div class="col-sm right responsive-col">
+        <app-whenwhere></app-whenwhere>
+      </div>
+    </div>
 </div>
   

@@ -1,13 +1,26 @@
 <app-navbar></app-navbar>
 
-  <div class="container" *ngIf="errorState" class="alert alert-danger custom-alert" role="alert">
-      <p>{{errorMessage}}</p>
+<div *ngIf="errorState !== 'none'" class="alert-container">
+  <div *ngIf="errorState === 'error'" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p>{{alertMessage}}</p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
   </div>
+
+  <div *ngIf="errorState === 'success'" class="alert alert-success alert-dismissible fade show" role="alert">
+      <p>{{alertMessage}}</p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+</div>
 
   <div class="container myplans">
       <h2>My Plans</h2>
-      <div class="hitext">
+      <div class="profile-text">
         <p>Hi <strong>{{profile?.email}}</strong> you currently have {{profile?.plans?.length}} plan(s)</p>
+        <button class="btn" (click)="newPlan()">New Plan &nbsp; <i class="fas fa-plus"></i> </button>
       </div>
       <div *ngFor="let plan of profile?.plans" class="row form-row plans">
           <mat-card>
@@ -18,10 +31,10 @@
                                   <p>Created on {{plan?.createdAt | date}}</p>                          
                           </div>
                           <div class="col-6">
-                              <button class="btn btn-share" title="Edit or Share Plan">
+                              <button class="btn btn-share" title="Edit or Share Plan" (click)="openPlan(plan)">
                                   <i class="fas fa-edit"></i>
                               </button>
-                              <button class="btn btn-delete" title="Delete Plan">
+                              <button class="btn btn-delete" title="Delete Plan" (click)="deletePlan(plan)">
                                   <i class="fas fa-times"></i>
                               </button>
                           </div>

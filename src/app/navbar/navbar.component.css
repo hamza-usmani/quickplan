@@ -1,3 +1,24 @@
 .navbar-brand{
   font-size: 2em;
 }
+
+.align-right{
+  position: absolute;
+  right: 1em;
+}
+
+.logout{
+  background-color: slategrey;
+  color: white;
+  border: none;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 5em;
+  font-size: 1em;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.logout:hover{
+  background-color: #9ea0b4;
+}

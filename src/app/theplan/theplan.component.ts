@@ -37,7 +37,9 @@ export class TheplanComponent implements OnInit {
     this.longitude = -79.640579;
 
     this.searchControl = new FormControl();
-    this.setCurrentPosition();
+    /* if (!this._planService.currentPlan.latitude || !this._planService.currentPlan.longitude) {
+      this.setCurrentPosition();
+    }*/
 
     this.mapsAPILoader.load().then(() => {
       const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
@@ -53,6 +55,18 @@ export class TheplanComponent implements OnInit {
         });
       });
     });
+
+    if (this._planService.currentPlan.planname) {
+      this.planText = this._planService.currentPlan.plantext;
+    }
+    if (this._planService.currentPlan.address) {
+      this.searchControl.setValue(this._planService.currentPlan.address);
+    }
+    if (this._planService.currentPlan.latitude && this._planService.currentPlan.longitude) {
+      this.latitude = parseFloat(this._planService.currentPlan.latitude.toString());
+      this.longitude = parseFloat(this._planService.currentPlan.longitude.toString());
+      this.zoom = 15;
+    }
   }
 
   private setCurrentPosition() {
@@ -60,13 +74,14 @@ export class TheplanComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 12;
+        this.zoom = 15;
       });
     }
   }
 
   savePlan() {
     this._planService.currentPlan.plantext = this.planText;
+    this._planService.currentPlan.address = this.searchElementRef.nativeElement.value;
     this._planService.currentPlan.latitude = this.latitude;
     this._planService.currentPlan.longitude = this.longitude;
   }

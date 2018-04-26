@@ -4,13 +4,28 @@
     background-color: #6e6f72;
 }
 
-h1{
+.plan-title{
+    color: white;
+    font-weight: 500;
+    font-size: 3em;
     text-align: center;
+    border: none;
+    background: transparent;
+    outline: none;
 }
 
-#sendbtn{
+.align-right{
+    right: 1em;
     position: absolute;
-    right:1em;
+}
+
+.save-btn{
+    background-color: rgb(218, 218, 218);
+    color: #5c5d5f;
+}
+.save-btn:hover{
+    background-color: #e6e6e6;
+    color: #3f4041;
 }
 
 .col-sm{
@@ -39,9 +54,10 @@ h1{
     transition: 0.2s;
 }
 
+/*
 .left:hover {
     background-color: #bdc3cf;
-}
+}*/
   
   .right{
     height: 100%;
@@ -50,9 +66,9 @@ h1{
     transition: 0.2s;
   }
   
-  .right:hover {
+/*.right:hover {
     background-color: #bdc3cf;
-}
+}*/
 
   .mid{
     height: 100%;
@@ -62,9 +78,9 @@ h1{
     
   }
   
-  .mid:hover {
-    background-color: #dfe2e9;
-    }
+/*.mid:hover {
+background-color: #dfe2e9;
+}*/
 
   /*Remove the scrollbar*/
   ::-webkit-scrollbar {

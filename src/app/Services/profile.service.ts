@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { environment } from '../../environments/environment';
-import { UserProfile } from '../Models/UserProfile';
+import { UserProfile, UserProfilePlans } from '../Models/UserProfile';
 
 @Injectable()
 export class ProfileService {
@@ -18,14 +18,21 @@ export class ProfileService {
     return this.token;
   }
 
-  private request(method: 'get'|'post', profile?: UserProfile): Observable<any> {
+  private request(method: 'get'|'post', profile?: UserProfile, plan?: UserProfilePlans): Observable<any> {
     let base;
     if (method === 'post') {
-        base = this.http.post(environment.server + `profile`, profile);
+      if (plan) {
+        base = this.http.post(environment.server + `profile/deleteplan`, plan, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      }
+      else {
+        base = this.http.post(environment.server + `profile`, profile, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      }
     }
+
     else {
         base = this.http.get(environment.server + `profile`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
+
     const request = base.pipe(
       map((data: UserProfile) => {
         return data;
@@ -42,4 +49,7 @@ export class ProfileService {
     return this.request('post', profile);
   }
 
+  public deletePlanFromProfile(profile: UserProfile, plan: UserProfilePlans): Observable<any> {
+    return this.request('post', profile, plan);
+  }
 }

@@ -22,6 +22,9 @@ export class PeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this._planService.currentPlan.people) {
+      this.people = this._planService.currentPlan.people;
+    }
   }
 
   newPerson(): void {
