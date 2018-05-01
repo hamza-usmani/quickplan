@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef  } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import { Location } from '@angular/common';
 import { AuthenticationService, TokenPayload } from '../Services/authentication.service';
 import { Router } from '@angular/router';
 import { UserProfile, UserProfilePlans } from '../Models/UserProfile';
@@ -11,14 +14,18 @@ import { Plan } from '../Models/Plan';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
 
+export class ProfileComponent implements OnInit {
   profile: UserProfile;
   alertMessage: string;
   errorState: 'none' | 'error' | 'success';
+  shareUrl: string;
+  modalRef: NgbModalRef;
+  @ViewChild('modalContent') modalContent: TemplateRef<any>;
+  refresh: Subject<any> = new Subject();
 
   constructor(private _authenticationService: AuthenticationService, private _profileService: ProfileService,
-              private _planService: PlanService , private router: Router) {
+              private _planService: PlanService , private router: Router, private modal: NgbModal, location: Location) {
     if (!_authenticationService.isLoggedIn()) {
       this.router.navigateByUrl('/home');
     }
@@ -39,7 +46,6 @@ export class ProfileComponent implements OnInit {
   deletePlan(plan: UserProfilePlans) {
     this._profileService.deletePlanFromProfile(this.profile, plan).subscribe(p => {
       location.reload();
-      this.showSuccess(p.successMessage);
     }, (err) => {
       this.showError(err.error);
     });
@@ -55,12 +61,22 @@ export class ProfileComponent implements OnInit {
   }
 
   sharePlan(plan: UserProfilePlans) {
-    
+    this._planService.sharePlan(plan).subscribe(p => {
+      console.log(p);
+      this.shareUrl = location.host + '/plan/view/' + p.uuid;
+      this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
+    }, (err) => {
+      this.showError(err.error);
+    });
   }
 
   newPlan() {
     this._planService.clearPlan();
     this.router.navigateByUrl('/start');
+  }
+
+  copyURL() {
+
   }
 
   private showSuccess(message: string) {

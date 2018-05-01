@@ -1,0 +1,103 @@
+.container-fluid{
+    color: whitesmoke;
+    padding-top: 1em;
+    background-color: #6e6f72;
+}
+
+.plan-title{
+    color: white;
+    font-weight: 500;
+    font-size: 3em;
+    text-align: center;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.align-right{
+    right: 1em;
+    position: absolute;
+}
+
+.save-btn{
+    background-color: rgb(218, 218, 218);
+    color: #5c5d5f;
+}
+.save-btn:hover{
+    background-color: #e6e6e6;
+    color: #3f4041;
+}
+
+.col-sm{
+    text-align: center;
+}
+.row-height{
+    height: 100vh;
+}
+
+@media (min-width: 1235px) {
+    .responsive-col{
+        padding: 2em;
+    }
+}
+
+@media (max-width: 1235px) {
+    .responsive-col{
+        padding-top: 2em;
+    }
+}
+
+.col-header{
+    color: #5c5d5f;
+    border-bottom: #5c5d5f solid 1px;
+    margin-bottom: 1em;
+}
+
+.left{
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #cdd2dd;
+}
+.left .mat-card{
+    width: 100%;
+    padding: 8px;
+}
+.left .mat-card-content{
+    display:inline-block;
+}
+
+agm-map {
+    height: 300px;
+    width: 100%;
+    padding-top: 0;
+    margin-top: 0;
+    border: 0 !important;
+}
+
+.right{
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #cdd2dd;
+}
+
+.mid{
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #e7eaf1;
+}
+
+.mid .mat-card{
+    margin-top: 1em;
+}
+
+
+/*Remove the scrollbar*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+* {
+-ms-overflow-style: none !important;
+}
+  

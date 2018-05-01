@@ -29,6 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './Services/profile.service';
 import { PlanService } from './Services/plan.service';
 import { environment } from '../environments/environment';
+import { SharedplanComponent } from './sharedplan/sharedplan.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { environment } from '../environments/environment';
     SignupComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    SharedplanComponent
   ],
   imports: [
     BrowserModule,

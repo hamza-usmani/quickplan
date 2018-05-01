@@ -16,33 +16,60 @@
   </div>
 </div>
 
-  <div class="container myplans">
-      <h2>My Plans</h2>
-      <div class="profile-text">
-        <p>Hi <strong>{{profile?.email}}</strong> you currently have {{profile?.plans?.length}} plan(s)</p>
-        <button class="btn" (click)="newPlan()">New Plan &nbsp; <i class="fas fa-plus"></i> </button>
-      </div>
-      <div *ngFor="let plan of profile?.plans" class="row form-row plans">
-          <mat-card>
-              <mat-card-content>
-                  <div class="row event-content justify-content-end">
-                          <div class="col-6 event-card">
-                                  <h6>{{plan?.planname}}</h6>
-                                  <p>Created on {{plan?.createdAt | date}}</p>                          
-                          </div>
-                          <div class="col-6">
-                              <button class="btn btn-share" title="Edit or Share Plan" (click)="openPlan(plan)">
-                                  <i class="fas fa-edit"></i>
-                              </button>
-                              <button class="btn btn-delete" title="Delete Plan" (click)="deletePlan(plan)">
-                                  <i class="fas fa-times"></i>
-                              </button>
-                          </div>
-                  </div>
-              </mat-card-content>
-          </mat-card>
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()">
+            <i class="fas fa-times-circle close-icon"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <h4>Share Plan link</h4>
+            <div class="row-fluid">
+                <mat-form-field>
+                  <input matInput id="share-link" value="{{shareUrl}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="row-fluid">
+                <button class="btn" (click)="copyURL()">Click to copy</button>
+            </div>
         </div>
-  </div>
+    </div>
+</ng-template>
+
+
+<div class="container myplans">
+    <h2>My Plans</h2>
+    <div class="profile-text">
+      <p>Hi <strong>{{profile?.email}}</strong> you currently have {{profile?.plans?.length}} plan(s)</p>
+      <button class="btn" (click)="newPlan()">New Plan &nbsp; <i class="fas fa-plus"></i> </button>
+    </div>
+    <div *ngFor="let plan of profile?.plans" class="row form-row plans">
+        <mat-card>
+            <mat-card-content>
+                <div class="row event-content justify-content-end">
+                        <div class="col-6 event-card">
+                                <h6>{{plan?.planname}}</h6>
+                                <p>Created on {{plan?.createdAt | date}}</p>                          
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-delete" title="Delete Plan" (click)="deletePlan(plan)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <button class="btn btn-edit" title="Edit Plan" (click)="openPlan(plan)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            
+                            <button class="btn btn-share" title="Share Plan" (click)="sharePlan(plan)">
+                                <i class="fas fa-share-square"></i>
+                            </button>
+                        </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+      </div>
+</div>
   
   
 

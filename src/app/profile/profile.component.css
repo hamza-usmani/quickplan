@@ -63,26 +63,37 @@ mat-card{
     padding: 1em 0 0 2em;
 }
 
-.event-delete{
-    width: 100%;
+.btn-share{
+    width: 30%;
+    background-color:#b6e0bd;
+    color: white;
+    font-size: 1.5em;
+    height: 100%;
+    border-radius: 0 !important;
+    border: none !important;
+    float: right;
+}
+.btn-share:hover{
+    background-color: #7fa786;
 }
 
-.btn-share{
-    width: 50%;
+.btn-edit{
+    width: 30%;
     color: white;
     font-size: 1.5em;
     background-color: #9ac8dd;
     height: 100%;
     border-radius: 0 !important;
     border: none !important;
+    float: right;
 }
 
-.btn-share:hover{
+.btn-edit:hover{
     background-color: #5c91c4;
 }
 
 .btn-delete{
-    width: 50%;
+    width: 30%;
     color: white;
     font-size: 1.5em;
     background-color: #e65e5e;
@@ -90,6 +101,7 @@ mat-card{
     float: right;
     border-radius: 0 !important;
     border: none !important;
+    text-align: center;
 }
 
 .btn-delete:hover{
@@ -101,4 +113,8 @@ mat-card{
         font-size: 3em;
     }
     
+}
+
+.mat-form-field{
+    width: 100%;
 }
