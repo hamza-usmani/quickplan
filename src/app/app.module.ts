@@ -30,6 +30,7 @@ import { ProfileService } from './Services/profile.service';
 import { PlanService } from './Services/plan.service';
 import { environment } from '../environments/environment';
 import { SharedplanComponent } from './sharedplan/sharedplan.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SharedplanComponent } from './sharedplan/sharedplan.component';
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    SharedplanComponent
+    SharedplanComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

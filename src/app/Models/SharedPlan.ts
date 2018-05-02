@@ -54,6 +54,7 @@ export class SharedPlan {
                     }
                 });
             });
+            console.log('constructor latitude' + this.latitude);
         }
     }
 }

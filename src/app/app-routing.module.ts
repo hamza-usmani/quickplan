@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedplanComponent } from './sharedplan/sharedplan.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'plan/view/:uuid', component: SharedplanComponent}
+  { path: 'plan/view/:uuid', component: SharedplanComponent},
+  { path: 'error', component: ErrorComponent},
+  {path: '**', redirectTo: '/error'}
 ];
 
 @NgModule({

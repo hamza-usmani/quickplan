@@ -71,7 +71,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this._planService.saveNewPlan().subscribe(s => {
       this.router.navigateByUrl('/profile');
     }, (err) => {
-        console.log('error saving');
+        console.log('error saving new plan');
     });
   }
 
@@ -79,7 +79,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this._planService.saveExistingPlan().subscribe(s => {
       this.router.navigateByUrl('/profile');
     }, (err) => {
-        console.log('error saving');
+        console.log('error saving existing plan');
     });
   }
 

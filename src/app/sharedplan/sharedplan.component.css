@@ -65,6 +65,9 @@
 .left .mat-card-content{
     display:inline-block;
 }
+.person-card{
+    margin-top: 5px;
+}
 
 agm-map {
     height: 300px;
@@ -79,6 +82,12 @@ agm-map {
     overflow-y: scroll;
     background-color: #cdd2dd;
 }
+.right .cal{
+    background-color: rgb(238, 237, 237);
+    color: rgb(59, 59, 59);
+    cursor: pointer;
+}
+
 
 .mid{
     height: 100%;

@@ -8,7 +8,7 @@
         <div class="col-header">
             <h2>PEOPLE</h2>
         </div>
-          <div *ngFor="let person of sharedPlan.people" class="row form-row">
+          <div *ngFor="let person of sharedPlan.people" class="row form-row person-card">
               <mat-card>
                   <mat-card-content> <div class="row"> <h6>{{person.name}}</h6> </div></mat-card-content>
               </mat-card>
@@ -32,8 +32,18 @@
 
       <div class="col-sm right responsive-col">
           <div class="col-header">
-              <h2>WHEN</h2>
-
+            <h2>WHEN</h2>
+          </div>
+          <div class="align-self-center">
+              <app-calendar-header [(view)]="view" [(viewDate)]="viewDate"> </app-calendar-header>
+              <div class="cal">
+                <div [ngSwitch]="view">
+                <mwl-calendar-month-view
+                  [viewDate]="viewDate"
+                  [events]="sharedPlan.events">
+                </mwl-calendar-month-view>
+                </div>
+              </div>
           </div>
       </div>
 

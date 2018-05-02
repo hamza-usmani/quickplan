@@ -1,5 +1,17 @@
 <app-section-card-header title="{{title}}" id=2></app-section-card-header>
 <app-calendar-header [(view)]="view" [(viewDate)]="viewDate"> </app-calendar-header>
+<div class="align-self-center">
+    <div class="cal">
+        <div [ngSwitch]="view">
+        <mwl-calendar-month-view
+        [viewDate]="viewDate"
+        [events]="events"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)">
+        </mwl-calendar-month-view>
+        </div>
+    </div>
+</div>
 
 <ng-template #modalContent let-close="close">
         <div class="modal-header">
@@ -70,17 +82,4 @@
         </div>
     </div>
 </ng-template>
-
-<div class="align-self-center">
-  <div class="cal">
-    <div [ngSwitch]="view">
-    <mwl-calendar-month-view
-      [viewDate]="viewDate"
-      [events]="events"
-      [activeDayIsOpen]="activeDayIsOpen"
-      (dayClicked)="dayClicked($event.day)">
-    </mwl-calendar-month-view>
-    </div>
-  </div>
-</div>
 
