@@ -1,7 +1,9 @@
 .container-fluid{
     color: whitesmoke;
     padding-top: 1em;
-    background-color: #6e6f72;
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .plan-title{
@@ -14,18 +16,26 @@
     outline: none;
 }
 
-.align-right{
-    right: 1em;
-    position: absolute;
+.save-container{
+    width:100%;
 }
 
 .save-btn{
-    background-color: rgb(218, 218, 218);
-    color: #5c5d5f;
+    background-color: #c9c8c8;
+    color: #585858;
+    border: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 0 !important;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s;
+    width: 100%;
 }
 .save-btn:hover{
-    background-color: #e6e6e6;
-    color: #3f4041;
+    color: white;
+    background-color: #949393;
 }
 
 .col-sm{
@@ -53,22 +63,12 @@
     background-color: #cdd2dd;
     transition: 0.2s;
 }
-
-/*
-.left:hover {
-    background-color: #bdc3cf;
-}*/
-  
   .right{
     height: 100%;
     overflow-y: scroll;
     background-color: #cdd2dd;
     transition: 0.2s;
   }
-  
-/*.right:hover {
-    background-color: #bdc3cf;
-}*/
 
   .mid{
     height: 100%;
@@ -77,10 +77,6 @@
     transition: 0.2s;
     
   }
-  
-/*.mid:hover {
-background-color: #dfe2e9;
-}*/
 
   /*Remove the scrollbar*/
   ::-webkit-scrollbar {

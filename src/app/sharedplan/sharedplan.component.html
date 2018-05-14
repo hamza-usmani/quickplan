@@ -25,7 +25,7 @@
           <mat-card>
             <mat-card-content> <h6>{{sharedPlan.address}}</h6> </mat-card-content> 
           </mat-card>
-          <agm-map [latitude]="sharedPlan.latitude" [longitude]="sharedPlan.longitude" [scrollwheel]="false" [zoom]="7">
+          <agm-map [latitude]="sharedPlan.latitude" [longitude]="sharedPlan.longitude" [scrollwheel]="false" [zoom]="12">
               <agm-marker [latitude]="sharedPlan.latitude" [longitude]="sharedPlan.longitude"></agm-marker>
           </agm-map>
       </div>
@@ -40,7 +40,8 @@
                 <div [ngSwitch]="view">
                 <mwl-calendar-month-view
                   [viewDate]="viewDate"
-                  [events]="sharedPlan.events">
+                  [events]="sharedPlan.events"
+                  (dayClicked)="dayClicked($event.day)">
                 </mwl-calendar-month-view>
                 </div>
               </div>
@@ -50,3 +51,33 @@
     </div>
 </div>
   
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">{{ modalData?.date | date}}</h5>
+      <button type="button" class="close" (click)="close()">
+            <i class="fas fa-times-circle close-icon"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <h4>Events starting on this day:</h4>
+            <div *ngIf="modalData?.eventsOnDay.length === 0" class="alert alert-light custom-alert">
+                <p>No events start on this day.</p>
+            </div>
+            <div *ngFor="let event of modalData?.eventsOnDay" class="row event-modal">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="row event-content">
+                                <div class="event-card">
+                                        <h6>{{event.title}}</h6>
+                                        <p>Start Date: {{event.start | date:'medium'}}</p>
+                                        <p>End Date: {{event.end | date:'medium'}}</p>
+                                </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</ng-template>
+

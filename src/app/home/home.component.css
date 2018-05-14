@@ -31,7 +31,6 @@ html{
 
 .btn-class button:hover{
   background-color: #88b8e2;
-  color: white;
 }
 
 h1{
@@ -48,17 +47,6 @@ h1{
 .login-text{
     color: #84858a;
     padding-top: 2em;
-}
-
-a{
-    color: inherit;
-    text-decoration: inherit;
-}
-
-h5:hover{
-    color: #adadad;
-    transition: 0.2s;
-    cursor: pointer;
 }
 
 button{
@@ -94,7 +82,7 @@ button{
 
 @media (max-width: 485px) {
     h1{
-        font-size: 5em;
+        font-size: 4em;
     }
     h5{
         font-size: 1em;

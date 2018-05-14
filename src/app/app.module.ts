@@ -31,6 +31,7 @@ import { PlanService } from './Services/plan.service';
 import { environment } from '../environments/environment';
 import { SharedplanComponent } from './sharedplan/sharedplan.component';
 import { ErrorComponent } from './error/error.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ErrorComponent } from './error/error.component';
       libraries: ['places']
     }),
     CalendarModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ClipboardModule
   ],
   providers: [
     AuthenticationService,

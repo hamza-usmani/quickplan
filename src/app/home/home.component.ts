@@ -28,10 +28,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToPlan() {
-    this.router.navigate(['/start']);
-  }
-
   openSignup() {
     this.modalData = {
       type: 'signup',

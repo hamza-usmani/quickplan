@@ -15,8 +15,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'start', component: StartpageComponent},
   { path: 'plan' , component: MainpageComponent},
-  { path: 'signup', component: SignupComponent},
-  { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'plan/view/:uuid', component: SharedplanComponent},
   { path: 'error', component: ErrorComponent},

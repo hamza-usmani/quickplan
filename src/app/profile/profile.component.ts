@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   alertMessage: string;
   errorState: 'none' | 'error' | 'success';
   shareUrl: string;
+  isCopied = false;
   modalRef: NgbModalRef;
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
   refresh: Subject<any> = new Subject();
@@ -62,7 +63,7 @@ export class ProfileComponent implements OnInit {
 
   sharePlan(plan: UserProfilePlans) {
     this._planService.sharePlan(plan).subscribe(p => {
-      console.log(p);
+      this.isCopied = false;
       this.shareUrl = location.host + '/plan/view/' + p.uuid;
       this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
     }, (err) => {
@@ -73,10 +74,6 @@ export class ProfileComponent implements OnInit {
   newPlan() {
     this._planService.clearPlan();
     this.router.navigateByUrl('/start');
-  }
-
-  copyURL() {
-
   }
 
   private showSuccess(message: string) {

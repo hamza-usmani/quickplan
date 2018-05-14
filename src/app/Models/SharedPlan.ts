@@ -33,8 +33,8 @@ export class SharedPlan {
             this.planname = sharedPlanDetails.planname;
             this.plantext = sharedPlanDetails.plantext;
             this.address = sharedPlanDetails.address;
-            this.latitude = sharedPlanDetails.latitude;
-            this.longitude = sharedPlanDetails.longitude;
+            this.latitude = parseFloat(sharedPlanDetails.latitude.toString());
+            this.longitude = parseFloat(sharedPlanDetails.longitude.toString());
             this.people = new Array();
             sharedPlanDetails.people.forEach(p => {
                 this.people.push({
@@ -54,7 +54,6 @@ export class SharedPlan {
                     }
                 });
             });
-            console.log('constructor latitude' + this.latitude);
         }
     }
 }

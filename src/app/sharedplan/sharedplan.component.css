@@ -1,7 +1,9 @@
 .container-fluid{
     color: whitesmoke;
     padding-top: 1em;
-    background-color: #6e6f72;
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .plan-title{
@@ -110,3 +112,26 @@ agm-map {
 -ms-overflow-style: none !important;
 }
   
+.event-modal{
+    margin-bottom: 1em;
+}
+
+.event-modal mat-card{
+    width: 100% !important;
+    padding: 0;
+}
+
+.close{
+    text-align: right;
+}
+.modal-header button:hover{
+    background-color: transparent !important;
+}
+
+.modal-header button:focus {
+    outline:0;
+}
+
+.event-card{
+    padding: 1em 0 0 2em;
+}

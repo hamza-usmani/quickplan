@@ -20,6 +20,9 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private _planService: PlanService,
               private _authenticationService: AuthenticationService) {
+    if (!this._authenticationService.isLoggedIn()) {
+      this.router.navigateByUrl('/');
+    }
   }
 
   ngOnInit() {
@@ -34,11 +37,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() { }
 
   savePlanClicked() {
-    if (!this._authenticationService.isLoggedIn()) {
-      // show modal to sign up or login, then save
-      console.log('sign up or login to save');
-    }
-    else {
+    if (this._authenticationService.isLoggedIn()) {
       this.savePlan();
     }
   }
@@ -52,7 +51,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
       // existing plan being updated
       if (this._planService.currentPlan.planid) {
         if (this._planService.currentPlan.userid.toString() == this._authenticationService.getUserDetails()._id) {
-            console.log('updating existing plan');
             this.putExistingPlan();
         }
         else {
@@ -62,7 +60,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
       }
       // new plan being posted
       else {
-        console.log('post new plan');
         this.postNewPlan();
       }
   }
