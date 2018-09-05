@@ -6,11 +6,11 @@ const app = express();
 
 console.log('serve static files');
 // Serve only the static files from the dist directory
-app.use(express.static(__dirname + '/dist/QuickPlan'));
+app.use(express.static(__dirname + '/dist/quickplan'));
 
 app.get('/*', function(req,res) {
     console.log('send files');
-    res.sendFile(path.join(__dirname+'/dist/QuickPlan/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/quickplan/index.html'));
 });
 
 console.log('start the app');
