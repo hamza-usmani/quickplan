@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/dist/quickplan'));
 
 app.get('/*', function(req,res) {
     console.log('send files');
-    res.sendFile(path.join(__dirname+'/dist/quickplan/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
 console.log('start the app');
