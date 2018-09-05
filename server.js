@@ -6,7 +6,7 @@ const app = express();
 
 console.log('serve static files');
 // Serve only the static files from the dist directory
-app.use(express.static(__dirname + '/dist/quickplan'));
+app.use(express.static(__dirname + '/dist/quick-plan'));
 
 app.get('/*', function(req,res) {
     console.log('send files');
