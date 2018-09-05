@@ -4,13 +4,15 @@ const path = require('path');
 
 const app = express();
 
+console.log('serve static files');
 // Serve only the static files from the dist directory
-app.use(express.static(__dirname + '/dist/quick-plan'));
+app.use(express.static(__dirname + '/dist/QuickPlan'));
 
 app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/quick-plan/index.html'));
+    console.log('send files');
+    res.sendFile(path.join(__dirname+'/dist/QuickPlan/index.html'));
 });
 
+console.log('start the app');
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
