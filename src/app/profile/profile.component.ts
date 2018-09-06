@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
     this._planService.sharePlan(plan).subscribe(p => {
       this.isCopied = false;
       // if dev, remove https, else keep it
-      this.shareUrl = 'https' + location.host + '/#/shared/view/' + p.uuid;
+      this.shareUrl = 'https://' + location.host + '/#/shared/view/' + p.uuid;
       this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
     }, (err) => {
       this.showError(err.error);
