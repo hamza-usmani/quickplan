@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'start', component: StartpageComponent},
   { path: 'plan' , component: MainpageComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'plan/view/:uuid', component: SharedplanComponent},
+  { path: 'shared/view/:uuid', component: SharedplanComponent},
   { path: 'error', component: ErrorComponent},
   {path: '**', redirectTo: '/error'}
 ];
