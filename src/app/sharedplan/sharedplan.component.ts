@@ -43,7 +43,6 @@ export class SharedplanComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _planService: PlanService, private modal: NgbModal, private router: Router) {
     this.route.params.subscribe(params => {
       const uuid = params.uuid;
-      console.log('Logging the constructor for shared plan with uuid ' + uuid);
       this._planService.viewPlan(uuid).subscribe(p => {
         this.sharedPlan = new SharedPlan(p);
         if (this.sharedPlan.events) {

@@ -66,7 +66,7 @@ export class PlanService {
   }
 
   private requestView(uuid: string): Observable<any> {
-    const base = this.http.get('https://' + environment.server + `shared/view/${uuid}`);
+    const base = this.http.get(environment.server + `shared/view/${uuid}`);
     const request = base.pipe(
       map((data: Plan) => {
         return data;
