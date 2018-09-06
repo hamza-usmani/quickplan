@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
   sharePlan(plan: UserProfilePlans) {
     this._planService.sharePlan(plan).subscribe(p => {
       this.isCopied = false;
-      this.shareUrl = 'https://' + location.host + '/plan/shared/' + p.uuid;
+      this.shareUrl = 'https://' + location.host + '/shared/view/' + p.uuid;
       this.modalRef = this.modal.open(this.modalContent, { size: 'lg' });
     }, (err) => {
       this.showError(err.error);
