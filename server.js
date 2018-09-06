@@ -7,9 +7,8 @@ const app = express();
 // Serve only the static files from the dist directory
 app.use(express.static(__dirname + '/dist'));
 
-app.all('/*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('index.html', { root: __dirname });
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
