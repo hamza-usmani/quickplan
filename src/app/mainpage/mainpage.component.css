@@ -42,7 +42,7 @@
     text-align: center;
 }
 .row-height{
-    height: 100vh;
+    min-height: 100vh;
 }
 
 @media (min-width: 1235px) {
@@ -58,21 +58,21 @@
 }
 
 .left{
-    height: 100%;
-    overflow-y: scroll;
+    min-height: 100%;
+    /*overflow-y: scroll;*/
     background-color: #cdd2dd;
     transition: 0.2s;
 }
   .right{
-    height: 100%;
-    overflow-y: scroll;
+    min-height: 100%;
+    /*overflow-y: scroll;*/
     background-color: #cdd2dd;
     transition: 0.2s;
   }
 
   .mid{
-    height: 100%;
-    overflow-y: scroll;
+    min-height: 100%;
+    /*overflow-y: scroll;*/
     background-color: #e7eaf1;
     transition: 0.2s;
     
